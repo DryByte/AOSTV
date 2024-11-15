@@ -100,6 +100,12 @@ class Client extends AoS.Client {
 				setTimeout(this.Proxy.setOnLive.bind(this.Proxy), PROXY_DELAY*1000);
 				break;
 
+			case "unlive":
+				this.sendMessage(`Match is going unlive in ${PROXY_DELAY} seconds`);
+				setTimeout(this.Proxy.stop.bind(this.Proxy), PROXY_DELAY*1000);
+
+				break;
+
 			case "config":
 				args[1] = args[1].slice(0, 10);
 				args[2] = args[2].slice(0, 10);

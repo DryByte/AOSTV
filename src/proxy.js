@@ -12,7 +12,6 @@ async function sleep(ms) {
 
 class Proxy {
 	constructor(aostv) {
-		super();
 		this.host;
 		this.players = new Array(MAX_PROXY_PLAYERS);
 		this.bans = [];
@@ -177,6 +176,15 @@ class Proxy {
 		let player = this.players[id];
 
 		return player.peer.address().address;
+	}
+
+	stop() {
+		this.aostv.state = 0;
+		this.broadcastMessage("MATCH ENDED!");
+		clearInterval(this.aostv.DemoPlayer.packetsLoop);
+
+		this.aostv.DemoPlayer = null;
+		this.aostv.DemoRecorder = null;
 	}
 
 	async liveCountdown() {
