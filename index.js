@@ -187,6 +187,10 @@ class Client extends AoS.Client {
 			case 19:
 				this.ProxyLive.saveChunkData(packet);
 				break;
+
+			case 20:
+				this.ProxyLive.deletePlayer(packet);
+				break;
 		}
 	}
 }
