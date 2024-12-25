@@ -173,6 +173,7 @@ class Client extends AoS.Client {
 
 		switch(packet[0]) {
 			case 9:
+			case 12:
 				this.ProxyLive.savePlayer(packet);
 				break;
 
